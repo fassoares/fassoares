@@ -1,0 +1,11 @@
+{
+    "name": "fassoares/sisfgts",
+    "description": "sistema para calculo da diferença do FGTS, ATUALIZADO PELA igmpatualizado pelo\u001b[C\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[IGMP",
+    "authors": [
+        {
+            "name": "Francisco Soares",
+            "email": "fassoares@ymail.com"
+        }
+    ],
+    "require": {}
+}

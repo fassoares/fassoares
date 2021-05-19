@@ -2,7 +2,7 @@
     require_once('../vendor/autoload.php');
     require_once('../app/config/config.php');
     require_once('../app/functions/functions.php');
-    (new \app\core\RouterCore());
+   // (new \app\core\RouterCore());
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +22,9 @@
             <h1 class="text-center text-uppercase">Criar o arquivo CSV dos dados de JAM dos valores FGTS</h1>
             <h2 class="text-center text-uppercase">BUSCAR ARQUIVO</h2>
         </header>
-        <div>
-        <li><a href = "../app/view/atualizabaseindexinpc.php" >atualiza os indices</a> </li>
+        <div>        
+            <li><a href = "../app/view/atualizabaseindexinpc.php" >atualiza os indices</a> </li>
+            <li><a href =  "../app/controller/Calcularatualizacao.php" >Calcular valor da atualização pelo INPC</a></li>
         </div>
         <form method="post" action ="../app/controller/cadastrarindice.php" enctype="multipart/form-data">
             <label>Arquivo</label>

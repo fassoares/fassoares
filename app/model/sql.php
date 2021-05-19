@@ -14,21 +14,35 @@ class Sql extends PDO {
         }
     }
 
-    public function query($rawQuery,$params = array())    {
+     public function query($rawQuery,$params = array()){
         $stmt = $this->conexao->prepare($rawQuery);
         $this->setParams($stmt,$params); 
         $stmt->execute();
         return $stmt;
-    }
+    } 
 
     public function selectSQL($rawQuery,$params = array()):array
-    {
-        try {
+    {        
+        try{
+            $conn = new PDO("mysql:dbname=mercado_bd;host=localhost:3306 ",'chico','chic@oSQL2020');
+        }catch(Exception $ex){
+            echo $ex->getMessage();
+        }       
+
+        $stmtz = $conn->prepare($rawQuery);
+        $stmtz ->execute();
+        $resulta =$stmtz->fetchAll(pdo::FETCH_ASSOC);
+        var_dump($resulta);
+        return $resulta;
+
+       /*  try {
             $stmt= $this->query($rawQuery,$params);
+            
+            var_dump($stmt);
             return $stmt->fetchALL(PDO::FETCH_ASSOC);
         } catch (exception $ex){
                 echo $ex->getMessage();
-        }
+        } */
         
         
     }

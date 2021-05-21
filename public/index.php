@@ -20,16 +20,16 @@
     <body class="container">
         <header>
             <h1 class="text-center text-uppercase">Criar o arquivo CSV dos dados de JAM dos valores FGTS</h1>
-            <h2 class="text-center text-uppercase">BUSCAR ARQUIVO</h2>
+            <h2 class="text-center text-uppercase">Ler ARQUIVO</h2>
         </header>
         <div>        
-            <li><a href = "../app/view/atualizabaseindexinpc.php" >atualiza os indices</a> </li>
+            <li><a href = "../app/view/atualizabaseindexinpc.php" >Criar o arquivo CSV creditoJAM</a> </li>
             <li><a href =  "../app/controller/Calcularatualizacao.php" >Calcular valor da atualização pelo INPC</a></li>
         </div>
         <form method="post" action ="../app/controller/cadastrarindice.php" enctype="multipart/form-data">
             <label>Arquivo</label>
             <input type="file" name="arquivoTxt" value = 'busca'><br><br>
-            <input type="submit" value="buscar arquivo">
+            <input type="submit" value="Ler arquivo">
         </form>
     </body>
 </html>

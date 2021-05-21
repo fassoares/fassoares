@@ -53,7 +53,8 @@ $dadosArq = $_FILES['arquivoTxt'];
 var_dump ($_FILES);
  
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\\temp\\FGTS Manoel\\creditojan.csv'; 
-$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\temp\\FGTS Francisco\\creditojan.csv';
+//$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\temp\\FGTS Francisco\\creditojan.csv';
+$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan.csv'; 
 $fileArq =$_FILES['arquivoTxt']['tmp_name'];
  //Ler o arquivo para um array;
 $arrayDados = file($fileArq);

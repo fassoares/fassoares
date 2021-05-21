@@ -20,11 +20,12 @@
     <body class="container">
         <header>
             <h1 class="text-center text-uppercase">Criar a base de dados para atualizar os valores FGTS</h1>
+            <h1 class="text-center text-uppercase">através da leitura do arquivo extraido da base de atualização do site https://acessoseguro.sso.caixa.gov.br/portal/</h1>
         </header>
         <form method="post" action ="../controller/atualizarfgtsinpc.php" enctype="multipart/form-data">
-            <label>Arquivo</label>
+            <label>Buscar Arquivo Extratofgts.csv</label>
             <input type="file" name="arquivoTxt" value = 'busca'><br><br>
-            <input type="submit" value="buscar arquivo">
+            <input type="submit" value="Ler arquivo">
         </form>
     </body>
 </html>

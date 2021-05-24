@@ -4,23 +4,13 @@
          <meta charset = "utf-8"> <!--conjunto de caracter com  os caracteres especiais do portugues brasil-->
          <link rel="stylesheet" type = "text/css" href="Css/style.css">
 
-         <title>Lista Unidade de Produtos</title>
+         <title>Gerar indice jam</title>
     </head>
     <body>
         <header>
-            <h1>Lista  Unidade de Produtos</h1>
+            <h1>Gerar os indices, somente de atualização do mês</h1>
         </header>        
-        <div>
-            <table border=0>
-                <tr>
-                    <td>id</td>
-                    <td>mês</td>
-                    <td>Ano</td>
-                    <td>Indice JAN</td>
-                    <td>Índice INPC</td>
-                    <td>Juros</td>
-                    <td>Novo Índice</td>
-                </tr>
+        
 <?php 
 require_once('../config/config.php');
 require_once('../model/sql.php');
@@ -34,11 +24,8 @@ $IndiceINPC_E;
 $Juros3_E;
 $NovoIndice_E;
 try{
-    echo"_____________________________________________________________________________<BR>";
-     $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql
-    //$conn = new PDO('sqlsrv:DataBase=mercado;server=localhost\sqlexpress;ConnectionPooling=0','chico','basedadossql'); // conecatar com mysql
-    echo "<br> Conectado com a base de dados DB_ACAOFGTS! Cadastrar índice de atualização INPC</br>";
-    echo"_____________________________________________________________________________<BR>";
+      $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql
+    
 }
 catch(exception $ex){
     echo $ex->getMessage();
@@ -50,11 +37,11 @@ $delimitador = ',';
 $cerca = '"';
 // recebe o array com od dados do Arquivo selecionado
 $dadosArq = $_FILES['arquivoTxt'];
-var_dump ($_FILES);
- 
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\\temp\\FGTS Manoel\\creditojan.csv'; 
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\temp\\FGTS Francisco\\creditojan.csv';
-$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan.csv'; 
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 13766.csv'; 
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 7529.csv';  
+$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 30423.csv'; 
 $fileArq =$_FILES['arquivoTxt']['tmp_name'];
  //Ler o arquivo para um array;
 $arrayDados = file($fileArq);
@@ -99,17 +86,6 @@ if ($f) {
         if(substr(TRIM($registro['Lancamentos']),0,7)=='CREDITO')
             fwrite($newfile,TRIM($registro['Data']).";".TRIM($registro['Lancamentos']).";".TRIM($registro['Valor']).PHP_EOL);
 
-            ?>
-            <!-- <tr>
-                    <td><?php echo $Id; ?></td>
-                    <td><?php echo $Mes; ?></td>
-                    <td><?php echo $Ano; ?></td>
-                    <td><?php echo $IndiceJAN3; ?></td>
-                    <td><?php echo $IndiceINPC_E; ?></td>
-                    <td><?php echo $Juros3_E; ?></td>                    
-                    <td><?php echo $NovoIndice_E; ?></td>
-                </tr> -->
-            <?php 
 /*             $class = new Classeindex ("",$Mes,$Ano,$IndiceJAN3,$IndiceINPC_E,$Juros3_E,$NovoIndice_E); 
             $class->insertIndex(); */
         }
@@ -118,9 +94,5 @@ fclose($f);
 fclose($newfile);
 echo "Finalização da criação do arquivo csv das atualizações do FGTS.";
 ?>
-
-            </table>
-                    
-        </div>
     </body>
 </html>

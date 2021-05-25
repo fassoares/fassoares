@@ -24,14 +24,11 @@ $IndiceINPC_E;
 $Juros3_E;
 $NovoIndice_E;
 try{
-      $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql
-    
+      $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql   
 }
 catch(exception $ex){
     echo $ex->getMessage();
 }
-
-
 // Exemplo de scrip para exibir os nomes obtidos no arquivo CSV de exemplo
 $delimitador = ',';
 $cerca = '"';
@@ -41,8 +38,14 @@ $dadosArq = $_FILES['arquivoTxt'];
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\temp\\FGTS Francisco\\creditojan.csv';
 //$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 13766.csv'; 
 //$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 7529.csv';  
-$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 30423.csv'; 
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 30423.csv';  
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 149038.csv'; 
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 208109.csv'; 
+//$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 13766.csv'; 
 $fileArq =$_FILES['arquivoTxt']['tmp_name'];
+$parteName=explode(" ",$dadosArq["name"]);
+$namcsv=ltrim($parteName[4], "0");
+$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan'.$namcsv;
  //Ler o arquivo para um array;
 $arrayDados = file($fileArq);
  $f = fopen($fileArq, 'r');
@@ -82,7 +85,6 @@ if ($f) {
         $IndiceINPC_E = (float)str_replace(',','.',TRIM($registro['INPC_E']));
         $Juros3_E = (float)str_replace(',','.',TRIM($registro['Juros3_E']));
         $NovoIndice_E = (float)str_replace(',','.',TRIM($registro['Novoindice_E'])); */
-
         if(substr(TRIM($registro['Lancamentos']),0,7)=='CREDITO')
             fwrite($newfile,TRIM($registro['Data']).";".TRIM($registro['Lancamentos']).";".TRIM($registro['Valor']).PHP_EOL);
 

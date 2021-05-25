@@ -23,8 +23,8 @@
             <h2 class="text-center text-uppercase">Ler ARQUIVO</h2>
         </header>
         <div>        
-            <li><a href = "../app/view/atualizabaseindexinpc.php" >Criar o arquivo CSV creditoJAM</a> </li>
-            <li><a href =  "../app/controller/Calcularatualizacao.php" >Calcular valor da atualização pelo INPC</a></li>
+            <li><a href = "../app/view/atualizabaseindexinpc.php" >Criar o arquivo CSV creditoJAM</a> </li><br><br>
+            <li><a href =  "../app/controller/Calcularatualizacao.php" >Calcular valor da atualização pelo INPC</a></li><br><br>
         </div>
         <form method="post" action ="../app/controller/cadastrarindice.php" enctype="multipart/form-data">
             <label>Arquivo</label>

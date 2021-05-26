@@ -23,9 +23,9 @@
             <h1 class="text-center text-uppercase">através da leitura do arquivo extraido da base de atualização do site https://acessoseguro.sso.caixa.gov.br/portal/</h1>
         </header>
         <form method="post" action ="../controller/atualizarfgtsinpc.php" enctype="multipart/form-data">
-            <label>Buscar Arquivo Extratofgts.csv</label>
+            <label>Buscar Arquivo Extratofgts.csv</label><br><br>
             <input type="file" name="arquivoTxt" value = 'busca'><br><br>
-            <input type="submit" value="Ler arquivo">
+            <input type="submit" value="Ler arquivo"><br><br>
         </form>
     </body>
 </html>

@@ -24,7 +24,7 @@ $IndiceINPC_E;
 $Juros3_E;
 $NovoIndice_E;
 try{
-      $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql   
+    $conn = new PDO('mysql:dbname=bd_acaofgts;host=localhost:3306','chico','chic@oSQL2020'); // conecatar com mysql   
 }
 catch(exception $ex){
     echo $ex->getMessage();
@@ -32,7 +32,7 @@ catch(exception $ex){
 // Exemplo de scrip para exibir os nomes obtidos no arquivo CSV de exemplo
 $delimitador = ',';
 $cerca = '"';
-// recebe o array com od dados do Arquivo selecionado
+// recebe o array com os dados do Arquivo selecionado
 $dadosArq = $_FILES['arquivoTxt'];
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\\temp\\FGTS Manoel\\creditojan.csv'; 
 //$newfileArq = 'C:\Users\\fasso\\OneDrive\\Documents\temp\\FGTS Francisco\\creditojan.csv';
@@ -44,8 +44,9 @@ $dadosArq = $_FILES['arquivoTxt'];
 //$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan 13766.csv'; 
 $fileArq =$_FILES['arquivoTxt']['tmp_name'];
 $parteName=explode(" ",$dadosArq["name"]);
-$namcsv=ltrim($parteName[4], "0");
-$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS Marcelo\\creditojan'.$namcsv;
+$ind=count($parteName)-1;
+$namcsv=ltrim($parteName[$ind], "0");
+$newfileArq = 'C:\Users\\chico\\OneDrive\\Documents\\temp\\FGTS bruna\\creditojan'.$namcsv;
  //Ler o arquivo para um array;
 $arrayDados = file($fileArq);
  $f = fopen($fileArq, 'r');

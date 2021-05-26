@@ -27,7 +27,7 @@
             <li><a href =  "../app/controller/Calcularatualizacao.php" >Calcular valor da atualização pelo INPC</a></li><br><br>
         </div>
         <form method="post" action ="../app/controller/cadastrarindice.php" enctype="multipart/form-data">
-            <label>Arquivo</label>
+            <label>Arquivo</label><br><br>
             <input type="file" name="arquivoTxt" value = 'busca'><br><br>
             <input type="submit" value="Ler arquivo">
         </form>

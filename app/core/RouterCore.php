@@ -1,6 +1,5 @@
 <?php
     namespace app\core;
-
     class RouterCore
     {
         //a variável privada <$uri> é todo o endereço que fica 
@@ -18,19 +17,19 @@
 
         public function initialize(){
             $this->method = $_SERVER['REQUEST_METHOD'];
-            $uri = $_SERVER['REQUEST_URI'];
-
-            /*
+            $uri = $_SERVER['REQUEST_URI']; 
+            dd($uri,false);
             // faz o que A FUNÇÃO normalizeURI faz
-            $part = str_replace('/FaturaCartaoBB/','',$uri);
-            dd($part, false);*/
-
-            $uri = $this->normalizeURI($uri);
+            $part = str_replace('/',$uri);
+            dd($part,false);
+            $uri = $this->normalizeURI($part); 
+            dd($uri);
+            
         }
 
         private function normalizeURI($strg)
         {
-            // 'Trandforma uma string em array, informando o delimitador dos valores do array';
+            // 'Transforma uma string em array, informando o delimitador dos valores do array';
             $ex = explode('/',$strg);
             // 'remove os valores vazios do array';
             $arr_sem_vazio = array_filter($ex);
@@ -38,6 +37,7 @@
             $arr_new_indice = array_values($arr_sem_vazio);
             for ($i=0; $i < UNSET_URI_COUNT; $i++)
             {
+                //unset remove indece de array
                 unset($arr_new_indice[$i]);
             }
             // 'removeu o indice zero';
@@ -46,9 +46,10 @@
             return $arr_new_indices;
 
         }
-
+ 
         private function get($router,$call)
         {
+            //insere na ultima posição do array nomearray[]
             $this->getArr[] = [
                 'router'=> $router,
                 'call' => $call 
@@ -66,13 +67,12 @@
             }
 
         }
-
+ 
         private function executeGET(){
             foreach( $this->getArr as $get)
-            dd($get['router'] ,false);
-            if ($get['router'] == $this->uri){
+            if ($get['router'] == $this->uri ){
                 echo "achei a rota que procurava";
             }
-        }
-    }
+        } 
+    } 
 ?>
